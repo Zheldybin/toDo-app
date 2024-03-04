@@ -26,4 +26,5 @@ const toggleDone = (id) => {
   addLS("tasks", tasks);
 };
 
-export { add, tasks, removeTask, toggleDone };
+
+export { add, tasks, removeTask, toggleDone};

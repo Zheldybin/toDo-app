@@ -16,6 +16,7 @@ const form = document.querySelector(".form");
 const input = document.querySelector(".input-task");
 const hidden = document.querySelector(".out-container_pending");
 const btnRemoveAll = document.querySelector(".btn-remove__all");
+const outCaunter = document.querySelector('.out-caunter')
 
 
 //проверка есть ли задачи и добавление класса если их нет
@@ -27,6 +28,7 @@ const checkVisibilityHidden = () => {
 
 render.allTasks(out, tasks);
 checkVisibilityHidden();
+renderQtyTask(outCaunter);
 
 // событие добавляет задачу
 form.addEventListener("submit", function (event) {
@@ -38,6 +40,7 @@ form.addEventListener("submit", function (event) {
   input.focus();
   input.value = "";
 
+  renderQtyTask(outCaunter)
   checkVisibilityHidden();
 });
 out.addEventListener("click", deleteHtmlTask);
@@ -58,6 +61,7 @@ function doneTask(event) {
     toggleDone(event.target.dataset.id);
     render.allTasks(out, tasks);
   }
+  renderQtyTask(outCaunter)
 }
 
 btnRemoveAll.addEventListener('click',() => {
@@ -65,6 +69,12 @@ btnRemoveAll.addEventListener('click',() => {
   tasks.length = 0;
   render.allTasks(out, tasks);
   checkVisibilityHidden();
+  renderQtyTask(outCaunter)
 })
 
-// container.innerHTML = `<h3>Выполненно ${lengthTrue} задачи, не выполенно ${length}</h3>`
+function renderQtyTask (container) {
+  const AllTaskDone = tasks.filter((item) => item.done === true);
+  const QtyDone = AllTaskDone.length;
+  const AllTasksLength = tasks.length;
+  container.innerHTML = `<h3>Выполненно ${QtyDone} задачи, не выполенно ${AllTasksLength}</h3>`
+}
