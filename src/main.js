@@ -5,7 +5,7 @@ import {
   tasks,
   removeTask,
   toggleDone,
-} from './service/tasks.js';
+  } from './service/tasks.js';
 
 import { render } from './service/render.js';
 
@@ -39,7 +39,7 @@ form.addEventListener("submit", function (event) {
 
   input.focus();
   input.value = "";
-
+  
   renderQtyTask(outCaunter)
   checkVisibilityHidden();
 });

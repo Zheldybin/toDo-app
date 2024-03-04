@@ -3,15 +3,13 @@ import { getAsValue, add as addLS } from "./LS";
 // Вернет первый true
 let tasks = getAsValue("tasks") ?? [];
 
-const add = (value) => {
+const add = (value, resData) => {
   const newTask = {
     id: Date.now(),
     text: value,
     done: false,
   };
-
   tasks.push(newTask);
-
   addLS("tasks", tasks);
 };
 
@@ -27,4 +25,5 @@ const toggleDone = (id) => {
 };
 
 
-export { add, tasks, removeTask, toggleDone};
+
+export { add, tasks, removeTask, toggleDone,};

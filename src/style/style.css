@@ -112,3 +112,14 @@ form{
   margin-top: 10px;
   text-align: center;
 }
+
+.data{
+  font-size: 10px;
+  display: block;
+}
+
+.wrapper-info{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
